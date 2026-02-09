@@ -1,6 +1,6 @@
-streamlit
-import streamlit as st
 
+​Main file path: اكتب app.py.
+App.py.
 # إعدادات الصفحة
 st.set_page_config(page_title="Zxp App", page_icon="🚀")
 
