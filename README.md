@@ -1,5 +1,5 @@
 
-​Main file path: اكتب app.py.
+​Main file path: ا
 App.py.
 # إعدادات الصفحة
 st.set_page_config(page_title="Zxp App", page_icon="🚀")
