@@ -1,5 +1,5 @@
-
-​Streamlit_app.py
+Streamlit_app.py
+​
 
 # إعدادات الصفحة
 st.set_page_config(page_title="Zxp App", page_icon="🚀")
