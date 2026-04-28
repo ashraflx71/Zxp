@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مترجم Palabra الاحترافي</title>
+    <style>
+        /* التصميم الملكي الذي تفضله */
+        body {
+            background-color: #000000; /* أسود */
+            color: #FFFFFF; /* أبيض */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #007BFF; /* أزرق ملكي */
+            font-size: 28px;
+        }
+
+        .status-card {
+            border: 2px solid #007BFF;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #050505;
+        }
+
+        .timer {
+            font-size: 22px; /* الخط الذي تفضله */
+            font-weight: bold;
+            color: #007BFF;
+        }
+
+        .btn-action {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn-pay {
+            background-color: #FFFFFF;
+            color: #007BFF;
+            border: 2px solid #007BFF;
+            font-weight: bold;
+        }
+
+        .info-text {
+            font-size: 18px;
+            margin-top: 15px;
+            color: #BBBBBB;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>الترجمة الصوتية الفورية</h1>
+    
+    <div class="status-card">
+        <div id="status-label">الحالة: تجربة مجانية</div>
+        <div class="timer" id="countdown">01:00</div>
+    </div>
+
+    <button class="btn-action" id="startBtn">ابدأ التحدث الآن</button>
+    
+    <div id="payment-section" style="display: none;">
+        <p class="info-text">انتهت المدة المجانية. فعل ساعة كاملة بـ 5 جنيه فقط.</p>
+        <button class="btn-action btn-pay" onclick="payNow()">تفعيل ساعة (5ج) عبر InstaPay</button>
+        <p style="font-size: 14px; margin-top: 10px;">أو حول لفودافون كاش: 010XXXXXXXX</p>
+    </div>
+
+    <script>
+        let timeLeft = 60; // 60 ثانية للمجاني
+        let timerId;
+
+        document.getElementById('startBtn').onclick = function() {
+            this.disabled = true;
+            this.innerText = "جاري الاستماع والترجمة...";
+            
+            timerId = setInterval(() => {
+                if(timeLeft <= 0) {
+                    clearInterval(timerId);
+                    endFreeTrial();
+                } else {
+                    timeLeft--;
+                    updateTimerDisplay();
+                }
+            }, 1000);
+        };
+
+        function updateTimerDisplay() {
+            let mins = Math.floor(timeLeft / 60);
+            let secs = timeLeft % 60;
+            document.getElementById('countdown').innerText = 
+                `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function endFreeTrial() {
+            document.getElementById('status-label').innerText = "انتهت الدقيقة المجانية";
+            document.getElementById('startBtn').style.display = "none";
+            document.getElementById('payment-section').style.display = "block";
+            // هنا يتم إيقاف اتصال WebRTC بـ Palabra
+        }
+
+        function payNow() {
+            alert("سيتم فتح تطبيق InstaPay أو عرض QR Code للدفع");
+            // هنا نربط بـ Deep link لـ InstaPay أو فودافون كاش
+        }
+    </script>
+</body>
+</html>
