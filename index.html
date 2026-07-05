@@ -165,7 +165,8 @@
       content: '';
       position: absolute;
       top: 0; right: 0; bottom: 0; left: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+      background-size: 50px 50px;
       opacity: 0.5;
     }
 
@@ -612,7 +613,9 @@
       content: '';
       position: absolute;
       top: 0; right: 0; bottom: 0; left: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+      background-size: 50px 50px;
+      opacity: 0.3;
     }
 
     .cta-inner {
@@ -820,6 +823,7 @@
       color: var(--accent);
       margin-bottom: 20px;
       position: relative;
+      z-index: 1;
     }
 
     .payment-card h3 {
@@ -827,12 +831,14 @@
       font-weight: 800;
       margin-bottom: 12px;
       position: relative;
+      z-index: 1;
     }
 
     .payment-card p {
       color: rgba(255,255,255,0.85);
       margin-bottom: 28px;
       position: relative;
+      z-index: 1;
     }
 
     .instapay-btn {
@@ -848,6 +854,7 @@
       text-decoration: none;
       transition: var(--transition);
       position: relative;
+      z-index: 1;
       box-shadow: 0 4px 20px rgba(212,168,67,0.3);
     }
 
@@ -949,6 +956,7 @@
       padding: 100px 30px 30px;
       box-shadow: -5px 0 30px rgba(0,0,0,0.1);
       transition: right 0.3s ease;
+      overflow-y: auto;
     }
 
     .mobile-nav.active { right: 0; }
@@ -1001,84 +1009,84 @@
       .services-grid { grid-template-columns: repeat(2, 1fr); }
       .team-grid { grid-template-columns: repeat(2, 1fr); }
       .footer-inner { grid-template-columns: 1fr 1fr; }
+      nav { display: none; }
+      .menu-toggle { display: block; }
     }
 
     @media (max-width: 768px) {
-      nav { display: none; }
-      .menu-toggle { display: block; }
+      .header-inner { height: 60px; }
+      .hero { padding-top: 60px; }
       .hero-content h1 { font-size: 36px; }
-      .services-grid { grid-template-columns: 1fr; }
-      .team-grid { grid-template-columns: 1fr; }
-      .stats-inner { grid-template-columns: 1fr 1fr; }
-      .form-row { grid-template-columns: 1fr; }
-      .about-features { grid-template-columns: 1fr; }
-      .footer-inner { grid-template-columns: 1fr; text-align: center; }
-      .social-links { justify-content: center; }
-      section { padding: 60px 20px; }
-    }
-
-    @media (max-width: 480px) {
-      .hero-content h1 { font-size: 28px; }
+      .hero-content p { font-size: 16px; }
       .section-header h2 { font-size: 28px; }
       .stats-inner { grid-template-columns: 1fr; }
-      .btn { width: 100%; justify-content: center; }
+      .services-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-
   <!-- Header -->
-  <header id="header">
+  <header>
     <div class="header-inner">
-      <a href="#home" class="logo">
-        <div class="logo-icon"><i class="fas fa-passport"></i></div>
-        <div class="logo-text">تساه<span>يل</span></div>
+      <a href="#" class="logo">
+        <div class="logo-icon"><i class="fas fa-globe"></i></div>
+        <div class="logo-text">تساهيل<span>.</span></div>
       </a>
       <nav>
-        <a href="#home" class="active">الرئيسية</a>
-        <a href="#about">من نحن</a>
-        <a href="#services">خدماتنا</a>
-        <a href="#team">فريقنا</a>
-        <a href="#contact">اتصل بنا</a>
-        <a href="tel:+97145678900" class="phone-btn"><i class="fas fa-phone"></i> +971 4 567 8900</a>
+        <a href="#services" class="nav-link">الخدمات</a>
+        <a href="#about" class="nav-link">عن الشركة</a>
+        <a href="#team" class="nav-link">فريقنا</a>
+        <a href="#contact" class="nav-link">التواصل</a>
       </nav>
-      <button class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+      <a href="tel:+966501234567" class="phone-btn">
+        <i class="fas fa-phone"></i> اتصل بنا
+      </a>
+      <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
   </header>
 
-  <!-- Mobile Nav -->
-  <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
-  <div class="mobile-nav" id="mobileNav">
-    <a href="#home" onclick="toggleMenu()">الرئيسية</a>
-    <a href="#about" onclick="toggleMenu()">من نحن</a>
-    <a href="#services" onclick="toggleMenu()">خدماتنا</a>
-    <a href="#team" onclick="toggleMenu()">فريقنا</a>
-    <a href="#contact" onclick="toggleMenu()">اتصل بنا</a>
-    <a href="tel:+97145678900" onclick="toggleMenu()" style="color: var(--accent);"><i class="fas fa-phone"></i> +971 4 567 8900</a>
-  </div>
+  <!-- Mobile Menu -->
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="#services">الخدمات</a>
+    <a href="#about">عن الشركة</a>
+    <a href="#team">فريقنا</a>
+    <a href="#contact">التواصل</a>
+  </nav>
+  <div class="overlay" id="overlay"></div>
 
-  <!-- Hero -->
-  <section class="hero" id="home">
+  <!-- Hero Section -->
+  <section class="hero">
     <div class="hero-inner">
       <div class="hero-content">
-        <h1>استشارات الهجرة<br>والإقامة <span>باحترافية</span></h1>
-        <p>نفتح لك أبواب العالم بخبرة ومصداقية. نسهل عليك إجراءات التأشيرات والإقامة في أكثر من 20 دولة حول العالم.</p>
+        <h1>استشارات <span>الهجرة والإقامة</span></h1>
+        <p>نساعدك في تحقيق حلمك بالهجرة والاستقرار في الخارج من خلال خدمات استشارية متخصصة وفريق محترف</p>
         <div class="hero-btns">
-          <a href="#contact" class="btn btn-primary"><i class="fas fa-calendar-check"></i> احجز استشارة مجانية</a>
-          <a href="#services" class="btn btn-outline"><i class="fas fa-list"></i> تعرف على خدماتنا</a>
+          <a href="#contact" class="btn btn-primary">استشر معنا الآن</a>
+          <a href="#services" class="btn btn-outline">تعرف على الخدمات</a>
         </div>
       </div>
       <div class="hero-visual">
         <div class="hero-globe">
-          <i class="fas fa-globe-americas"></i>
+          <i class="fas fa-globe"></i>
         </div>
         <div class="floating-card">
           <i class="fas fa-check-circle"></i>
-          <div><strong>2500+</strong><span>عميل ناجح</span></div>
+          <div>
+            <strong>+500</strong>
+            <span>حالة نجاح</span>
+          </div>
         </div>
         <div class="floating-card">
-          <i class="fas fa-award"></i>
-          <div><strong>20+</strong><span>دولة معتمدة</span></div>
+          <i class="fas fa-star"></i>
+          <div>
+            <strong>4.9/5</strong>
+            <span>تقييم العملاء</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1089,271 +1097,223 @@
     <div class="stats-inner">
       <div class="stat-item fade-in">
         <i class="fas fa-users"></i>
-        <span class="number">2500+</span>
-        <span class="label">عميل ناجح</span>
-      </div>
-      <div class="stat-item fade-in">
-        <i class="fas fa-handshake"></i>
-        <span class="number">12</span>
-        <span class="label">خدمة متخصصة</span>
-      </div>
-      <div class="stat-item fade-in">
-        <i class="fas fa-user-tie"></i>
-        <span class="number">15+</span>
-        <span class="label">خبير متخصص</span>
+        <span class="number">1500+</span>
+        <span class="label">عميل راضي</span>
       </div>
       <div class="stat-item fade-in">
         <i class="fas fa-globe"></i>
-        <span class="number">20+</span>
-        <span class="label">دولة معتمدة</span>
+        <span class="number">25+</span>
+        <span class="label">دول شريكة</span>
+      </div>
+      <div class="stat-item fade-in">
+        <i class="fas fa-briefcase"></i>
+        <span class="number">10+</span>
+        <span class="label">سنوات خبرة</span>
+      </div>
+      <div class="stat-item fade-in">
+        <i class="fas fa-trophy"></i>
+        <span class="number">50+</span>
+        <span class="label">جوائز وتقديرات</span>
       </div>
     </div>
   </div>
 
-  <!-- Services -->
+  <!-- Services Section -->
   <section class="services" id="services">
     <div class="section-header fade-in">
-      <h2>خدماتنا <span>المتخصصة</span></h2>
-      <p>نقدم حلولاً شاملة لجميع احتياجاتك في مجال الهجرة والإقامة</p>
+      <h2>خدمات <span>متخصصة</span></h2>
+      <p>نقدم مجموعة شاملة من خدمات الهجرة والإقامة لتحقيق طموحاتك</p>
       <div class="line"></div>
     </div>
     <div class="services-grid">
       <div class="service-card fade-in">
-        <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
-        <h3>تأشيرات الدراسة</h3>
-        <p>نساعدك في الحصول على قبول جامعي وتأشيرة دراسة في أفضل الجامعات العالمية بخطوات مبسطة.</p>
-      </div>
-      <div class="service-card fade-in">
-        <div class="service-icon"><i class="fas fa-briefcase"></i></div>
-        <h3>تأشيرات العمل</h3>
-        <p>نوفر لك فرص عمل في الخليج وأوروبا مع إتمام جميع إجراءات التأشيرة والإقامة بسهولة.</p>
+        <div class="service-icon"><i class="fas fa-passport"></i></div>
+        <h3>استشارات التأشيرات</h3>
+        <p>نساعدك في اختيار أنسب نوع تأشيرة وإعداد ملفك بكفاءة عالية</p>
       </div>
       <div class="service-card fade-in">
         <div class="service-icon"><i class="fas fa-home"></i></div>
         <h3>الإقامة الدائمة</h3>
-        <p>نرشدك نحو الحصول على الإقامة الدائمة والجنسية في الدول التي تدعم الاستثمار والمواهب.</p>
+        <p>خدمات متخصصة للحصول على الإقامة ال��ائمة في الدول المختلفة</p>
       </div>
       <div class="service-card fade-in">
-        <div class="service-icon"><i class="fas fa-users"></i></div>
-        <h3>لم الشمل العائلي</h3>
-        <p>نسهل عليك إجراءات لم شمل عائلتك وإحضارهم للإقامة معك بأقل وقت وأقل جهد.</p>
-      </div>
-      <div class="service-card fade-in">
-        <div class="service-icon"><i class="fas fa-plane"></i></div>
-        <h3>تأشيرات الزيارة</h3>
-        <p>نقدم لك خدمة استخراج تأشيرات الزيارة السياحية والعائلية لجميع الدول بسرعة وكفاءة.</p>
-      </div>
-      <div class="service-card fade-in">
-        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
-        <h3>إقامة المستثمرين</h3>
-        <p>نرشدك لبرامج الإقامة عن طريق الاستثمار في الإمارات وأوروبا بأقل رأس مال ممكن.</p>
+        <div class="service-icon"><i class="fas fa-briefcase"></i></div>
+        <h3>تأشيرات العمل</h3>
+        <p>نوفر استشارات للعاملين والشركات للحصول على تأشيرات عمل</p>
       </div>
     </div>
   </section>
 
-  <!-- About -->
+  <!-- About Section -->
   <section class="about" id="about">
     <div class="about-inner">
-      <div class="about-image fade-in">
+      <div class="about-image">
         <div class="about-image-main">
-          <i class="fas fa-building"></i>
+          <i class="fas fa-handshake"></i>
         </div>
-        <div class="about-image-badge">10+ سنوات<br>خبرة</div>
+        <div class="about-image-badge">+10 سنوات</div>
       </div>
       <div class="about-content fade-in">
         <h2>من نحن <span>تساهيل</span></h2>
-        <p>تساهيل هي شركة رائدة في مجال استشارات الهجرة والإقامة، تأسست في دبي بهدف تسهيل إجراءات السفر والهجرة على الأفراد والعائلات والمستثمرين.</p>
-        <p>نمتلك فريقاً من الخبراء والمستشارين القانونيين المتخصصين في شؤون الهجرة والإقامة، نعمل على مدار الساعة لضمان حصولك على أفضل النتائج بأسرع وقت.</p>
+        <p>شركة متخصصة في استشارات الهجرة والإقامة بخبرة تزيد عن 10 سنوات في المجال. نقدم خدمات احترافية وموثوقة لآلاف العملاء حول العالم.</p>
+        <p>فريقنا يتكون من متخصصين وخبراء في مجال الهجرة والقوانين الدولية، مما يضمن لك الحصول على أفضل استشارة ممكنة.</p>
         <div class="about-features">
-          <div class="about-feature"><i class="fas fa-check"></i><span>استشارات مجانية</span></div>
-          <div class="about-feature"><i class="fas fa-check"></i><span>متابعة شخصية</span></div>
-          <div class="about-feature"><i class="fas fa-check"></i><span>ضمان النتائج</span></div>
-          <div class="about-feature"><i class="fas fa-check"></i><span>أسعار تنافسية</span></div>
+          <div class="about-feature">
+            <i class="fas fa-check"></i>
+            <span>استشارات موثوقة</span>
+          </div>
+          <div class="about-feature">
+            <i class="fas fa-check"></i>
+            <span>فريق متخصص</span>
+          </div>
+          <div class="about-feature">
+            <i class="fas fa-check"></i>
+            <span>أسعار منافسة</span>
+          </div>
+          <div class="about-feature">
+            <i class="fas fa-check"></i>
+            <span>دعم مستمر</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Team -->
+  <!-- Team Section -->
   <section class="team" id="team">
     <div class="section-header fade-in">
-      <h2>فريق <span>الخبراء</span></h2>
-      <p>نخبة من المستشارين المتخصصين في شؤون الهجرة والإقامة</p>
+      <h2>فريقنا <span>المتميز</span></h2>
+      <p>التعرف على أعضاء الفريق المتخصص الذي يعمل على تحقيق طموحاتك</p>
       <div class="line"></div>
     </div>
     <div class="team-grid">
       <div class="team-card fade-in">
-        <div class="team-img"><i class="fas fa-user"></i></div>
+        <div class="team-img"><i class="fas fa-user-tie"></i></div>
         <div class="team-info">
-          <h3>أحمد السعيد</h3>
-          <span>مستشار هجرة أول</span>
-          <p>خبرة 12 سنة في شؤون الهجرة والإقامة</p>
-        </div>
-      </div>
-      <div class="team-card fade-in">
-        <div class="team-img"><i class="fas fa-user"></i></div>
-        <div class="team-info">
-          <h3>سارة المنصوري</h3>
-          <span>مستشارة قانونية</span>
-          <p>متخصصة في القانون الدولي والهجرة</p>
-        </div>
-      </div>
-      <div class="team-card fade-in">
-        <div class="team-img"><i class="fas fa-user"></i></div>
-        <div class="team-info">
-          <h3>خالد العمري</h3>
+          <h3>أحمد محمد</h3>
           <span>مدير العمليات</span>
-          <p>خبير في إدارة ملفات الهجرة المعقدة</p>
+          <p>خبرة 12 سنة في مجال الهجرة والاستشارات</p>
+        </div>
+      </div>
+      <div class="team-card fade-in">
+        <div class="team-img"><i class="fas fa-user-tie"></i></div>
+        <div class="team-info">
+          <h3>فاطمة علي</h3>
+          <span>استشارية ��جرة</span>
+          <p>متخصصة في التأشيرات والإقامة الدائمة</p>
+        </div>
+      </div>
+      <div class="team-card fade-in">
+        <div class="team-img"><i class="fas fa-user-tie"></i></div>
+        <div class="team-info">
+          <h3>محمود سالم</h3>
+          <span>محامي الهجرة</span>
+          <p>متخصص في القوانين الدولية والعقود</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- CTA Section -->
   <section class="cta">
-    <div class="cta-inner fade-in">
-      <h2>ابدأ رحلتك نحو مستقبل أفضل</h2>
-      <p>تواصل معنا الآن واحصل على استشارة مجانية من خبرائنا المتخصصين</p>
-      <a href="tel:+97145678900" class="btn btn-primary" style="font-size: 18px; padding: 16px 40px;">
-        <i class="fas fa-phone"></i> اتصل بنا الآن
-      </a>
+    <div class="cta-inner">
+      <h2>هل أنت مستعد للبدء؟</h2>
+      <p>تواصل معنا اليوم واحصل على استشارة مجانية من فريقنا المتخصص</p>
+      <a href="#contact" class="btn btn-primary">احجز استشارتك الآن</a>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <div class="contact-info fade-in">
+        <h2>تواصل <span>معنا</span></h2>
+        <p>لا تتردد في التواصل معنا للحصول على إجابات لجميع تساؤلاتك</p>
+        
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <h4>العنوان</h4>
+            <p>الرياض، المملكة العربية السعودية</p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <div>
+            <h4>الهاتف</h4>
+            <a href="tel:+966501234567">+966 50 123 4567</a>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <h4>البريد الإلكتروني</h4>
+            <a href="mailto:info@tasahel.com">info@tasahel.com</a>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form fade-in" id="contactForm">
+        <div class="form-group">
+          <label for="name">الاسم الكامل</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">البريد الإلكتروني</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">رقم الهاتف</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="service">الخدمة المطلوبة</label>
+          <select id="service" name="service" required>
+            <option value="">اختر الخدمة</option>
+            <option value="visa">استشارات التأشيرات</option>
+            <option value="residency">الإقامة الدائمة</option>
+            <option value="work">تأشيرات العمل</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">الرسالة</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">إرسال</button>
+      </form>
     </div>
   </section>
 
   <!-- Download Section -->
-  <section class="download" id="download">
-    <div class="section-header fade-in">
-      <h2>تحميل <span>الملفات</span></h2>
-      <p>حمّل الكتيب الإرشادي والمستندات المطلوبة لإجراءات الهجرة</p>
-      <div class="line"></div>
-    </div>
-    <div class="download-inner">
-      <div class="download-card fade-in">
+  <section class="download">
+    <div class="download-inner fade-in">
+      <div class="download-card">
         <i class="fas fa-file-pdf"></i>
-        <h3>دليل إجراءات الهجرة 2026</h3>
-        <p>كتيب شامل يحتوي على جميع الخطوات والمستندات المطلوبة للهجرة إلى أكثر من 20 دولة</p>
-        <a href="#" class="btn btn-primary" onclick="alert('سيتم توفير رابط التحميل قريباً'); return false;">
-          <i class="fas fa-download"></i> تحميل الكتيب
-        </a>
+        <h3>كتيب الخدمات</h3>
+        <p>اطلب كتيبنا الشامل عن جميع خدمات الهجرة والإقامة</p>
+        <a href="#" class="btn btn-primary">تحميل الكتيب</a>
       </div>
     </div>
   </section>
 
   <!-- Payment Section -->
-  <section class="payment" id="payment">
-    <div class="section-header fade-in">
-      <h2>الدفع <span>عبر إنستا باي</span></h2>
-      <p>ادفع بسهولة وأمان عبر تطبيق إنستا باي</p>
-      <div class="line"></div>
-    </div>
+  <section class="payment">
     <div class="payment-inner">
       <div class="payment-card fade-in">
-        <i class="fas fa-mobile-alt"></i>
-        <h3>ادفع الآن عبر إنستا باي</h3>
-        <p>يمكنك الآن دفع رسوم الاستشارة والخدمات بكل سهولة وأمان عبر تطبيق إنستا باي على رقم الهاتف المسجل</p>
-        <a href="https://ipn.eg/S/ashrafhassan567/instapay/9F5kuN" target="_blank" class="instapay-btn">
-          <i class="fas fa-external-link-alt"></i> الدفع عبر إنستا باي
+        <i class="fas fa-credit-card"></i>
+        <h3>الدفع الآمن</h3>
+        <p>ندفع عبر بوابات دفع آمنة وموثوقة مع ضمان أمان بيانات العملاء</p>
+        <a href="#" class="instapay-btn">
+          <i class="fas fa-lock"></i> ادفع الآن
         </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section class="contact" id="contact">
-    <div class="section-header fade-in">
-      <h2>تواصل <span>معنا</span></h2>
-      <p>نحن هنا لمساعدتك في كل خطوة، لا تتردد في التواصل معنا</p>
-      <div class="line"></div>
-    </div>
-    <div class="contact-inner">
-      <div class="contact-info fade-in">
-        <h2>معلومات <span>الاتصال</span></h2>
-        <p>زورنا في مكتبنا أو تواصل معنا عبر أي من القنوات التالية</p>
-
-        <div class="contact-item">
-          <i class="fas fa-map-marker-alt"></i>
-          <div>
-            <h4>العنوان</h4>
-            <p>برج الإمارات، شارع الشيخ زايد، دبي، الإمارات العربية المتحدة</p>
-          </div>
-        </div>
-
-        <div class="contact-item">
-          <i class="fas fa-phone"></i>
-          <div>
-            <h4>الهاتف</h4>
-            <a href="tel:+97145678900">+971 4 567 8900</a>
-          </div>
-        </div>
-
-        <div class="contact-item">
-          <i class="fas fa-envelope"></i>
-          <div>
-            <h4>البريد الإلكتروني</h4>
-            <a href="mailto:info@tasahil.ae">info@tasahil.ae</a>
-          </div>
-        </div>
-
-        <div class="contact-item">
-          <i class="fas fa-clock"></i>
-          <div>
-            <h4>ساعات العمل</h4>
-            <p>السبت - الخميس: 9:00 صباحاً - 6:00 مساءً</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="contact-form fade-in">
-        <form onsubmit="handleSubmit(event)">
-          <div class="form-row">
-            <div class="form-group">
-              <label>الاسم الكامل</label>
-              <input type="text" placeholder="أدخل اسمك الكامل" required>
-            </div>
-            <div class="form-group">
-              <label>رقم الهاتف</label>
-              <input type="tel" placeholder="+971 50 123 4567" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label>البريد الإلكتروني</label>
-            <input type="email" placeholder="your@email.com" required>
-          </div>
-          <div class="form-group">
-            <label>نوع الخدمة المطلوبة</label>
-            <select required>
-              <option value="">اختر الخدمة</option>
-              <option value="study">تأشيرة دراسة</option>
-              <option value="work">تأشيرة عمل</option>
-              <option value="residency">إقامة دائمة</option>
-              <option value="family">لم شمل عائلي</option>
-              <option value="visit">تأشيرة زيارة</option>
-              <option value="investor">إقامة مستثمر</option>
-              <option value="other">أخرى</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>البلد المستهدف</label>
-            <select required>
-              <option value="">اختر البلد</option>
-              <option value="uae">الإمارات العربية المتحدة</option>
-              <option value="saudi">المملكة العربية السعودية</option>
-              <option value="canada">كندا</option>
-              <option value="uk">المملكة المتحدة</option>
-              <option value="usa">الولايات المتحدة</option>
-              <option value="australia">أستراليا</option>
-              <option value="germany">ألمانيا</option>
-              <option value="other">أخرى</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>رسالتك</label>
-            <textarea placeholder="اكتب تفاصيل طلبك هنا..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
-            <i class="fas fa-paper-plane"></i> إرسال الطلب
-          </button>
-        </form>
       </div>
     </div>
   </section>
@@ -1362,112 +1322,120 @@
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">
-        <span class="logo-text">تساه<span style="color: var(--accent);">يل</span></span>
-        <p>شركة رائدة في مجال استشارات الهجرة والإقامة، نفتح لك أبواب العالم بخبرة ومصداقية منذ أكثر من 10 سنوات.</p>
+        <span class="logo-text">تساهيل<span style="color: var(--accent);">.</span></span>
+        <p>شركة متخصصة في استشارات الهجرة والإقامة بخبرة تزيد عن 10 سنوات</p>
         <div class="social-links">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://wa.me/97145678900"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
+      
       <div class="footer-col">
-        <h4>روابط سريعة</h4>
-        <a href="#home">الرئيسية</a>
-        <a href="#about">من نحن</a>
-        <a href="#services">خدماتنا</a>
-        <a href="#team">فريقنا</a>
-        <a href="#contact">اتصل بنا</a>
-      </div>
-      <div class="footer-col">
-        <h4>خدماتنا</h4>
-        <a href="#services">تأشيرات الدراسة</a>
-        <a href="#services">تأشيرات العمل</a>
+        <h4>الخدمات</h4>
+        <a href="#services">استشارات التأشيرات</a>
         <a href="#services">الإقامة الدائمة</a>
-        <a href="#services">لم الشمل العائلي</a>
-        <a href="#services">إقامة المستثمرين</a>
+        <a href="#services">تأشيرات العمل</a>
       </div>
+      
       <div class="footer-col">
-        <h4>تواصل معنا</h4>
-        <a href="tel:+97145678900">+971 4 567 8900</a>
-        <a href="mailto:info@tasahil.ae">info@tasahil.ae</a>
-        <a href="#">دبي، الإمارات</a>
-        <a href="https://ipn.eg/S/ashrafhassan567/instapay/9F5kuN" target="_blank">الدفع عبر إنستا باي</a>
+        <h4>الشركة</h4>
+        <a href="#about">من نحن</a>
+        <a href="#team">فريقنا</a>
+        <a href="#contact">تواصل معنا</a>
+      </div>
+      
+      <div class="footer-col">
+        <h4>مساعدة</h4>
+        <a href="#">الأسئلة الشائعة</a>
+        <a href="#">سياسة الخصوصية</a>
+        <a href="#">شروط الاستخدام</a>
       </div>
     </div>
+    
     <div class="footer-bottom">
-      <p>© 2026 تساهيل — جميع الحقوق محفوظة | استشارات الهجرة والإقامة</p>
+      <p>&copy; 2024 تساهيل. جميع الحقوق محفوظة. تصميم وتطوير احترافي</p>
     </div>
   </footer>
 
+  <!-- JavaScript -->
   <script>
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    const overlay = document.getElementById('overlay');
+
+    menuToggle.addEventListener('click', () => {
+      mobileNav.classList.toggle('active');
+      overlay.classList.toggle('active');
+    });
+
+    overlay.addEventListener('click', () => {
+      mobileNav.classList.remove('active');
+      overlay.classList.remove('active');
+    });
+
+    // Close mobile menu when clicking links
+    document.querySelectorAll('.mobile-nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('active');
+        overlay.classList.remove('active');
+      });
+    });
+
     // Header scroll effect
-    window.addEventListener('scroll', function() {
-      const header = document.getElementById('header');
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
-
-    // Mobile menu toggle
-    function toggleMenu() {
-      document.getElementById('mobileNav').classList.toggle('active');
-      document.getElementById('overlay').classList.toggle('active');
-    }
-
-    // Active nav link on scroll
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('nav a[href^="#"]');
-
     window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        if (scrollY >= sectionTop) {
-          current = section.getAttribute('id');
-        }
-      });
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + current) {
-          link.classList.add('active');
-        }
-      });
+      const header = document.querySelector('header');
+      header.classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    // Fade in animation on scroll
-    const fadeElements = document.querySelectorAll('.fade-in');
+    // Fade-in animation on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
         }
       });
-    }, { threshold: 0.1 });
+    }, observerOptions);
 
-    fadeElements.forEach(el => observer.observe(el));
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
 
-    // Form submission
-    function handleSubmit(e) {
-      e.preventDefault();
-      alert('شكراً لتواصلك معنا! سنتواصل معك في أقرب وقت.');
-      e.target.reset();
-    }
+    // Active nav links
+    const navLinks = document.querySelectorAll('.nav-link');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      document.querySelectorAll('section').forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (scrollY >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
 
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(current)) {
+          link.classList.add('active');
         }
       });
     });
-  </script>
 
+    // Form submission
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('شكراً لتواصلك معنا! سيتم الرد عليك قريباً.');
+        contactForm.reset();
+      });
+    }
+  </script>
 </body>
 </html>
